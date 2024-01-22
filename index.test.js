@@ -14,6 +14,12 @@ describe("Test API endpoints", () => {
         expect(res.body).toEqual({ message: 'Hello Client!' });
     })
 
+    it("GET /server should return Hello Client!", async () => {
+        const res = await request(app).get("/server");
+        expect(res.statusCode).toEqual(200);
+        expect(res.body).toEqual({ message: 'Hello Server!' });
+    })
+
     afterAll(done => {
         close();
         done();
